@@ -14,12 +14,20 @@
 </head>
 <body>
 
+<!--
 <%
 var tempArray = [
 	{"CAT":"美容","ID":"A001"},
  	{"CAT":"スポーツ","ID":"A002"},
  	{"CAT":"グルメ","ID":"A003"}
   ];
+%>
+-->
+
+<%
+var tempArray = [
+{"CAT":"美容", "CAT":"スポーツ", "CAT":"グルメ"}
+];
 %>
 
 <a href="#myModal" role="button" class="btn" data-toggle="modal">Modal起動</a>
@@ -33,7 +41,7 @@ var tempArray = [
 
   <ul><% for(var index in tempArray){ %>
 	<li>
-		<%- JSON.stringify(tempArray[index].CAT).split('""')[1] %>
+		<%- JSON.stringify(tempArray[index].CAT) %>
 	</li>
   <% } %>
   </ul>
