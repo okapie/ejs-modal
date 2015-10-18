@@ -15,7 +15,8 @@
 <body>
 <%
 var tempArray = ["美容", "スポーツ", "グルメ"];
-var tempArray2 = [{"CAT":"美容"},{"CAT":"スポーツ"},{"CAT":"グルメ"}]
+var tempArray2 = [{"CAT":"美容"},{"CAT":"スポーツ"},{"CAT":"グルメ"}];
+var tempArray3 = [{"CAT":"美容","ID":"A001"},{"CAT":"スポーツ","ID":"A002"},{"CAT":"グルメ","ID":"A003"}];
 %>
 <a href="#myModal" role="button" class="btn" data-toggle="modal">Modal起動</a>
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -23,10 +24,10 @@ var tempArray2 = [{"CAT":"美容"},{"CAT":"スポーツ"},{"CAT":"グルメ"}]
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">モーダルボックス</h3>
   </div>
-  <div class="modal-body">
+  <div class="modal-body" style="text-align:left">
     <h2>【モーダルボックスの中身】</h2>
-    <p>1) 文字列だけを格納した配列をイテレートで表示</p>
-    <div style="text-align:left;padding-left:30%;">
+    <p>1) 文字列を格納した配列をイテレートで表示</p>
+    <div style="padding-left:50px;">
 	<ul>
 	  <% for(var i=0; i<tempArray.length; i++) { %>
 	  <li>
@@ -35,14 +36,25 @@ var tempArray2 = [{"CAT":"美容"},{"CAT":"スポーツ"},{"CAT":"グルメ"}]
 	  <% } %>
    </ul>
    </div>
-   <p>1) keyとvalueを格納した配列をイテレートで表示</p>
-   <div style="text-align:left;padding-left:30%;">
+   <p>2) keyとvalueを格納した配列をイテレートで表示</p>
+   <div style="padding-left:50px;">
 	<ul>
 	  <% for(var i=0; i<tempArray2.length; i++) { %>
 	  <li>
 	   	<%- "イテレート結果その" + (i+1) + " : " + JSON.stringify(tempArray2[i].CAT).split('"')[1] %>
 	  </li>
 	  <% } %>
+	</ul>
+   </div>
+   <p>3) {key:value,key:value}を格納した配列をイテレートで表示</p>
+   <div style="padding-left:50px;">
+	<ul>
+	  <% for(var i=0; i<tempArray2.length; i++) { %>
+	  <li>
+	   <span><%- "イテレート結果その" + (i+1) + " : " + JSON.stringify(tempArray3[i].CAT).split('"')[1] %></span>
+	   <span><%- JSON.stringify(tempArray3[i].ID).split('"')[1] %></span>
+	  </li>
+	 <% } %>
 	</ul>
    </div>
   </div>
