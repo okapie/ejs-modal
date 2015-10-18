@@ -15,7 +15,7 @@
 <body>
 <%
 var tempArray = ["美容", "スポーツ", "グルメ"];
-
+var tempArray2 = [{"CAT":"美容"},{"CAT":"スポーツ"},{"CAT":"グルメ"}]
 %>
 <a href="#myModal" role="button" class="btn" data-toggle="modal">Modal起動</a>
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -34,6 +34,16 @@ var tempArray = ["美容", "スポーツ", "グルメ"];
 	  </li>
 	  <% } %>
    </ul>
+   </div>
+   <p>1) keyとvalueを格納した配列をイテレートで表示</p>
+   <div style="text-align:left;padding-left:30%;">
+	<ul>
+	  <% for(var i=0; i<tempArray2.length; i++) { %>
+	  <li>
+	   	<%- "イテレート結果その" + (i+1) + " : " + JSON.stringify(tempArray2[i].CAT).split('"')[1] %>
+	  </li>
+	  <% } %>
+	</ul>
    </div>
   </div>
   <div class="modal-footer">
