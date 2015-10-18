@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="http://www.webantena.net/wp-content/themes/webantena/_common/css/bootstrap.css">
+  <link rel="stylesheet" href="http://www.webantena.net/wp-content/themes/webantena/_common/css/demo.css">
+  <link rel="stylesheet" href="http://www.webantena.net/wp-content/themes/webantena/_common/css/responsive.css">
+  <script src="ejs_0.9_alpha_1_production.js"></script>
+  <script src="http://www.webantena.net/wp-content/themes/webantena/_common/modules/jquery/jquery.min.js"></script>
+  <script src="http://www.webantena.net/wp-content/themes/webantena/_common/modules/library/footerFixed.js"></script>
+  <script src="http://www.webantena.net/wp-content/themes/webantena/_common/modules/bootstrap/bootstrap-modal.js"></script>
+  <script src="http://www.webantena.net/wp-content/themes/webantena/_common/modules/bootstrap/bootstrap-transition.js"></script>
+</head>
+<body>
+
+<%
+var tempArray = [
+	{"CAT":"美容","ID":"A001"},
+ 	{"CAT":"スポーツ","ID":"A002"},
+ 	{"CAT":"グルメ","ID":"A003"}
+  ];
+%>
+
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Modal起動</a>
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">モーダルボックス</h3>
+  </div>
+  <div class="modal-body">
+    <p>モーダルボックスの中身</p>
+
+  <ul><% for(var index in tempArray){ %>
+	<li>
+		<%- JSON.stringify(tempArray[index].CAT).split('""')[1] %>
+	</li>
+  <% } %>
+  </ul>
+
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">閉じる</button>
+  </div>
+</div>
+
+</body>
+</html>
