@@ -13,6 +13,19 @@
   <script src="http://www.webantena.net/wp-content/themes/webantena/_common/modules/bootstrap/bootstrap-transition.js"></script>
 </head>
 <body>
+<% var tempArray4 = new Array(); %>
+<script>
+ $.ajax({
+   url: "../test.json",
+   type: "POST",
+   dataType: "json"
+ }).done(function(data){
+   tempArray4 = data;
+   alert('ajax通信でtest.jsonを取得しました。');
+ }).fail(function(data){
+   alert('ajax通信でtest.jsonの取得に失敗しました。');
+ });
+</script>
 <%
 var tempArray = ["美容", "スポーツ", "グルメ"];
 var tempArray2 = [{"CAT":"美容"},{"CAT":"スポーツ"},{"CAT":"グルメ"}];
@@ -54,6 +67,17 @@ var tempArray3 = [{"CAT":"美容","ID":"A001"},{"CAT":"スポーツ","ID":"A002"
 	   <span><%- "イテレート結果その" + (i+1) + " : " + JSON.stringify(tempArray3[i].CAT).split('"')[1] %></span>
 	   <span><%- JSON.stringify(tempArray3[i].ID).split('"')[1] %></span>
 	  </li>
+	 <% } %>
+	</ul>
+   </div>
+   <p>4) ajax通信で取得したJSON配列をイテレートで表示</p>
+   <div style="padding-left:50px;">
+	<ul>
+	 <% for(var i=0; i<tempArray4.length; i++) { %>
+	 <li>
+	  <span><%- "イテレート結果その" + (i+1) + " : " + JSON.stringify(tempArray4[i].CAT).split('"')[1] %></span>
+	  <span><%- JSON.stringify(tempArray4[i].ID).split('"')[1] %></span>
+	 </li>
 	 <% } %>
 	</ul>
    </div>
