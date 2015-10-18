@@ -2,34 +2,21 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>ejs-modal</title>
   <link rel="stylesheet" href="http://www.webantena.net/wp-content/themes/webantena/_common/css/bootstrap.css">
   <link rel="stylesheet" href="http://www.webantena.net/wp-content/themes/webantena/_common/css/demo.css">
   <link rel="stylesheet" href="http://www.webantena.net/wp-content/themes/webantena/_common/css/responsive.css">
-  <script src="ejs_0.9_alpha_1_production.js"></script>
+  <script src="../lib/ejs_0.9_alpha_1_production.js"></script>
   <script src="http://www.webantena.net/wp-content/themes/webantena/_common/modules/jquery/jquery.min.js"></script>
   <script src="http://www.webantena.net/wp-content/themes/webantena/_common/modules/library/footerFixed.js"></script>
   <script src="http://www.webantena.net/wp-content/themes/webantena/_common/modules/bootstrap/bootstrap-modal.js"></script>
   <script src="http://www.webantena.net/wp-content/themes/webantena/_common/modules/bootstrap/bootstrap-transition.js"></script>
 </head>
 <body>
-
-<!--
 <%
-var tempArray = [
-	{"CAT":"美容","ID":"A001"},
- 	{"CAT":"スポーツ","ID":"A002"},
- 	{"CAT":"グルメ","ID":"A003"}
-  ];
-%>
--->
+var tempArray = ["美容", "スポーツ", "グルメ"];
 
-<%
-var tempArray = [
-{"CAT":"美容", "CAT":"スポーツ", "CAT":"グルメ"}
-];
 %>
-
 <a href="#myModal" role="button" class="btn" data-toggle="modal">Modal起動</a>
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
@@ -37,21 +24,21 @@ var tempArray = [
     <h3 id="myModalLabel">モーダルボックス</h3>
   </div>
   <div class="modal-body">
-    <p>モーダルボックスの中身</p>
-
-  <ul><% for(var index in tempArray){ %>
-	<li>
-		<%- JSON.stringify(tempArray[index].CAT) %>
-	</li>
-  <% } %>
-  </ul>
-
+    <h2>【モーダルボックスの中身】</h2>
+    <p>1) 文字列だけを格納した配列をイテレートで表示</p>
+    <div style="text-align:left;padding-left:30%;">
+	<ul>
+	  <% for(var i=0; i<tempArray.length; i++) { %>
+	  <li>
+		<%= "イテレート結果その" + (i+1) + " : " + tempArray[i] %>
+	  </li>
+	  <% } %>
+   </ul>
+   </div>
   </div>
-
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">閉じる</button>
   </div>
 </div>
-
 </body>
 </html>
