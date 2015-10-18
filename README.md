@@ -1,1 +1,7 @@
-# ejs-modal
+# gulp-coffee
+
+## To use
+
+```
+$ gulp coffee
+```

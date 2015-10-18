@@ -1,0 +1,30 @@
+{
+  "name": "gulp-coffee",
+  "version": "1.0.0",
+  "description": "To build html from ejs",
+  "main": "gulpfile.coffee",
+  "dependencies": {
+    "gulp": "^3.4.0",
+    "gulp-coffee": "^1.2.5"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.6.3",
+    "ejs": "^2.3.4",
+    "gulp": "^3.4.0",
+    "gulp-coffee": "^1.2.5",
+    "gulp-ejs": "^1.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/okapie/gulp-coffee.git"
+  },
+  "keywords": [
+    "gulp",
+    "CoffeeScript"
+  ],
+  "author": "Okapie",
+  "license": "MIT"
+}
